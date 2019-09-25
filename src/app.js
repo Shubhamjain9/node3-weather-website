@@ -1,8 +1,8 @@
 const express = require('express')
-const app = express()
 const path = require('path')
 const hbs = require('hbs')
-
+const app = express()
+const port = process.env.PORT||3000
 
 
 // Define path for express config
@@ -19,7 +19,7 @@ hbs.registerPartials(partialPath)
 app.use(express.static(publicDirPath))
 
 
-app.get('',(req,res)=>{
+app.get('/',(req,res)=>{
     res.render('index',{
         title:'Weather app',
         name:'Shubham Jain'
@@ -66,8 +66,8 @@ app.get('*',(req,res)=>{
     })
 })
 
-app.listen(3000,()=>{
-    console.log('Server is up on port 3000')
+app.listen(port,()=>{
+    console.log('Server is up on port'+port)
 })
 
 
